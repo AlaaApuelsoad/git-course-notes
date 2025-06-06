@@ -1,0 +1,79 @@
+
+Git Course Notes
+-----------------------------
+
+Global Configuration
+
+Set your identity (used for all repos on your system):
+
+    git config --global user.name "Your Name"
+    git config --global user.email "your.email@example.com"
+
+Create a Local Repository
+
+    git init                      # Initializes a new Git repo
+    git init -b main              # Initializes with 'main' branch instead of 'master'
+
+Check Repository Status
+
+    git status                   # Shows current state of working directory and staging area
+
+Git Areas: Workflow Explained
+
+1. Working Directory
+   - Your project folder. You edit, add, delete files here.
+
+2. Staging Area (Index)
+   - Temporary space to hold changes you plan to commit.
+
+3. Local Repository
+   - Where Git permanently stores your commit history.
+
+Add Files to Staging Area
+
+    git add <filename>           # Stage a specific file
+    git add .                    # Stage all changed files
+
+Commit Changes
+
+    git commit -m "Your commit message"
+
+Saves staged changes to your local Git repository.
+
+Skip Staging (Stage & Commit in One Step)
+
+    git commit -a -m "Your message"
+
+Automatically stages tracked files and commits them.
+
+About Commits
+
+- Every commit creates a unique checksum (SHA-1 hash).
+- Commit history is viewable using:
+
+    git log                     # Full commit history
+    git log --oneline           # Short summary per commit
+
+See What Changed
+
+    git diff                    # Shows unstaged changes
+
+Remove File from Staging Area
+
+    git rm --cached <filename>  # Unstages a file (remains in working directory)
+
+Push to Remote Repository (e.g., GitHub)
+
+After setting up a GitHub repository:
+
+1. Add the remote:
+    git remote add origin git@github.com:username/repo.git
+
+2. Push your local commits to GitHub:
+    git push -u origin main
+
+SSH Keys in Git (Optional but Recommended)
+
+- Used for secure authentication with GitHub (no need to enter your password).
+- Set up with:
+    ssh-keygen -t rsa -b 4096 -C "your.email@example.com"
