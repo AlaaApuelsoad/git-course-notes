@@ -77,3 +77,9 @@ SSH Keys in Git (Optional but Recommended)
 - Used for secure authentication with GitHub (no need to enter your password).
 - Set up with:
     ssh-keygen -t rsa -b 4096 -C "your.email@example.com"
+
+-Tagging
+    git tag -a v1.0 -m "message" 
+    git tags
+    git show v1.0
+    git push origin v1.0 
