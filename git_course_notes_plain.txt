@@ -94,3 +94,8 @@ SSH Keys in Git (Optional but Recommended)
 
     you can switch between branches using switch or checkout
     
+    to delete branch
+    --> git branch -d <branchName>
+
+    push to branch
+    --> git push origin <branchName>
