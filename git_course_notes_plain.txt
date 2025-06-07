@@ -83,3 +83,14 @@ SSH Keys in Git (Optional but Recommended)
     git tags
     git show v1.0
     git push origin v1.0    
+
+
+######Branching
+    working on differnent branch will not affect you main or master branch
+    --creatin a new branch
+    --> git checkout -b <branchName>
+    -- to see how many branched?  
+    -->git branch
+
+    you can switch between branches using switch or checkout
+    
