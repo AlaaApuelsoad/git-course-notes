@@ -99,3 +99,7 @@ SSH Keys in Git (Optional but Recommended)
 
     push to branch
     --> git push origin <branchName>
+
+
+Note before merge always try to pull from remote repository first to get the changed code then merge
+    git merge <branchName>
