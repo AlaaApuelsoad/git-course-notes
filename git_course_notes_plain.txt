@@ -88,7 +88,7 @@ SSH Keys in Git (Optional but Recommended)
 ######Branching
     working on differnent branch will not affect you main or master branch
     --creatin a new branch
-    --> git checkout -b <branchName>
+    --> git checkout -b <branchName> or git switch -c <branchName>
     -- to see how many branched?  
     -->git branch
 
