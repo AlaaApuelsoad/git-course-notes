@@ -1,120 +1,159 @@
-########## Git Notes ##########
------------------------------
+########## Git Notes - Detailed ##########
+-----------------------------------------
 
 Global Configuration
------------------------------
+-----------------------------------------
 Set your identity (used for all repos on your system):
 
-    git config --global user.name "Your Name"
-    git config --global user.email "your.email@example.com"
-    git remote -v --> command is used to list all remotes connected to your local Git repository with their URLs.
+git config --global user.name "Your Name"
+    -> Sets your name for all Git commits.
+
+git config --global user.email "your.email@example.com"
+    -> Sets your email for all Git commits.
+
+git remote -v
+    -> Lists all remotes connected to your local repository with their fetch/push URLs.
 
 Create a Local Repository
------------------------------
-    git init
-    git init -b main
+-----------------------------------------
+git init
+    -> Creates a new Git repository in the current folder.
+
+git init -b main
+    -> Creates a Git repo with 'main' as the default branch.
 
 Check Repository Status
------------------------------
-    git status
+-----------------------------------------
+git status
+    -> Shows changed, staged, and untracked files.
 
 Git Areas Explained
------------------------------
-1. Working Directory – your project files.
-2. Staging Area (Index) – files prepared for commit.
-3. Local Repository – committed history.
+-----------------------------------------
+1. Working Directory – your real project files.
+2. Staging Area (Index) – files marked for commit.
+3. Local Repository – permanent commit history.
 
 Add Files to Staging Area
------------------------------
-    git add <filename>
-    git add .
+-----------------------------------------
+git add <filename>
+    -> Adds a single file to the staging area.
+
+git add .
+    -> Stages all modified and untracked files.
 
 Commit Changes
------------------------------
-    git commit -m "Your message"
+-----------------------------------------
+git commit -m "Your message"
+    -> Saves staged changes to the local repository.
 
 Skip Staging and Commit
------------------------------
-    git commit -a -m "Your message"
+-----------------------------------------
+git commit -a -m "Your message"
+    -> Automatically stages tracked files and commits them.
 
 View Commit History
------------------------------
-    git log
-    git log --oneline
+-----------------------------------------
+git log
+    -> Shows full detailed commit history.
+
+git log --oneline
+    -> Displays a simplified one-line-per-commit history.
 
 See Changes
------------------------------
-    git diff
+-----------------------------------------
+git diff
+    -> Shows unstaged changes in your working directory.
 
 Unstage File
------------------------------
-    git restore --staged <file>
+-----------------------------------------
+git restore --staged <file>
+    -> Removes a file from staging (keeps it in working directory).
 
 Push to Remote Repository
------------------------------
-    git remote add origin git@github.com:username/repo.git
-    git push -u origin main
+-----------------------------------------
+git remote add origin <url>
+    -> Links your local repo to a remote server (GitHub, GitLab, etc.).
+
+git push -u origin main
+    -> Pushes commits to the remote 'main' branch and sets upstream tracking.
 
 SSH Keys
------------------------------
-    ssh-keygen -t rsa -b 4096 -C "your.email@example.com"
+-----------------------------------------
+ssh-keygen -t rsa -b 4096 -C "your.email@example.com"
+    -> Creates an SSH key pair for secure login to GitHub.
 
 Tagging
------------------------------
-    git tag -a v1.0 -m "message"
-    git tags
-    git show v1.0
-    git push origin v1.0
+-----------------------------------------
+git tag -a v1.0 -m "message"
+    -> Creates an annotated tag named v1.0.
+
+git tags
+    -> Shows all tags in the repo.
+
+git show v1.0
+    -> Shows the commit associated with the tag.
+
+git push origin v1.0
+    -> Pushes the tag to the remote repository.
 
 Branching
------------------------------
-    git checkout -b <branchName>
-    git switch -c <branchName>
-    git branch
-    git switch <branchName>
-    git branch -d <branchName>
-    git push origin <branchName>
-    git merge <branchName>
+-----------------------------------------
+git checkout -b <branchName>
+    -> Creates and switches to a new branch.
+
+git switch -c <branchName>
+    -> Another method to create & switch to a branch.
+
+git branch
+    -> Lists all branches.
+
+git switch <branchName>
+    -> Switches to an existing branch.
+
+git branch -d <branchName>
+    -> Deletes a branch safely.
+
+git push origin <branchName>
+    -> Pushes the branch to the remote repo.
+
+git merge <branchName>
+    -> Merges another branch into the current one.
 
 Undoing Changes
------------------------------
-Undo staging:
-    git restore --staged <file>
+-----------------------------------------
+git restore --staged <file>
+    -> Removes a file from staging.
 
-Undo last commit but keep changes staged:
-    git reset --soft HEAD~1
+git reset --soft HEAD~1
+    -> Undo last commit but keep changes staged.
 
-Undo last commit and keep changes unstaged:
-    git reset --mixed HEAD~1
+git reset --mixed HEAD~1
+    -> Undo last commit and keep changes unstaged.
 
-Undo last commit and delete changes:
-    git reset --hard HEAD~1
+git reset --hard HEAD~1
+    -> Undo last commit and DELETE changes permanently.
 
-Reset to a specific commit:
-    git reset --hard <commit-hash>
+git reset --hard <commit-hash>
+    -> Reset project to a specific commit.
 
-Revert (safe undo):
-    git revert <commit-hash>
+git revert <commit-hash>
+    -> Creates a new commit that undoes an older commit (safe for shared repos).
 
 About .git Folder
------------------------------
-Important parts:
-
-- .git/objects/ : actual data (commits, files)
-- .git/index : staging area
-- .git/refs/ : branches and tags
-- .git/HEAD : current branch pointer
+-----------------------------------------
+.git/objects/  -> Stores commit data and file contents.
+.git/index     -> Staging area file.
+.git/refs/      -> Stores branch and tag references.
+.git/HEAD      -> Points to the currently checked-out branch.
 
 Untracked Files Behavior
------------------------------
-If you remove files from Git using:
-    git rm -r --cached .
-They will appear as untracked unless ignored.
+-----------------------------------------
+git rm -r --cached .
+    -> Removes files from Git but keeps them physically; they become “untracked”.
 
 .gitignore
------------------------------
-Example entries:
-
+-----------------------------------------
+Common entries:
     .idea/
     .vscode/
     target/
@@ -123,32 +162,45 @@ Example entries:
     .DS_Store
 
 Apply .gitignore:
-    git rm -r --cached .
-    git add .
+git rm -r --cached .
+git add .
+    -> Forces Git to re-evaluate ignored files.
 
 Advanced Log View
------------------------------
-    git log --oneline --graph --decorate --all
+-----------------------------------------
+git log --oneline --graph --decorate --all
+    -> Beautiful visual commit graph.
 
 Remove Entire Git Repository
------------------------------
-    rm -rf .git
+-----------------------------------------
+rm -rf .git
+    -> Deletes the entire Git repo and its history.
 
 Rename Branch
------------------------------
-    git branch -m oldName newName
+-----------------------------------------
+git branch -m oldName newName
+    -> Renames a branch.
 
 HEAD Errors
------------------------------
+-----------------------------------------
 HEAD~1 requires at least two commits.
+    -> Error occurs if the repository has fewer than 2 commits.
 
 Stashing
------------------------------
-    git stash
-    git stash list
-    git stash apply
-    git stash drop
+-----------------------------------------
+git stash
+    -> Saves uncommitted changes temporarily.
+
+git stash list
+    -> Shows all stashes.
+
+git stash apply
+    -> Restores stashed changes.
+
+git stash drop
+    -> Deletes a stash.
 
 Clean Untracked Files
------------------------------
-    git clean -fd
+-----------------------------------------
+git clean -fd
+    -> Deletes untracked files and folders from the working directory.
