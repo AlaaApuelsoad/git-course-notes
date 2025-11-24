@@ -1,4 +1,4 @@
-Git Notes
+########## Git Notes ##########
 -----------------------------
 
 Global Configuration
@@ -7,6 +7,7 @@ Set your identity (used for all repos on your system):
 
     git config --global user.name "Your Name"
     git config --global user.email "your.email@example.com"
+    git remote -v --> command is used to list all remotes connected to your local Git repository with their URLs.
 
 Create a Local Repository
 -----------------------------
