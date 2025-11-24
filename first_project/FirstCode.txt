@@ -1,5 +1,0 @@
-Hello world !!!
-git input from user
-add the values
-
-submit data into databases
