@@ -1,0 +1,153 @@
+Git Notes (Enhanced)
+-----------------------------
+
+Global Configuration
+-----------------------------
+Set your identity (used for all repos on your system):
+
+    git config --global user.name "Your Name"
+    git config --global user.email "your.email@example.com"
+
+Create a Local Repository
+-----------------------------
+    git init
+    git init -b main
+
+Check Repository Status
+-----------------------------
+    git status
+
+Git Areas Explained
+-----------------------------
+1. Working Directory – your project files.
+2. Staging Area (Index) – files prepared for commit.
+3. Local Repository – committed history.
+
+Add Files to Staging Area
+-----------------------------
+    git add <filename>
+    git add .
+
+Commit Changes
+-----------------------------
+    git commit -m "Your message"
+
+Skip Staging and Commit
+-----------------------------
+    git commit -a -m "Your message"
+
+View Commit History
+-----------------------------
+    git log
+    git log --oneline
+
+See Changes
+-----------------------------
+    git diff
+
+Unstage File
+-----------------------------
+    git restore --staged <file>
+
+Push to Remote Repository
+-----------------------------
+    git remote add origin git@github.com:username/repo.git
+    git push -u origin main
+
+SSH Keys
+-----------------------------
+    ssh-keygen -t rsa -b 4096 -C "your.email@example.com"
+
+Tagging
+-----------------------------
+    git tag -a v1.0 -m "message"
+    git tags
+    git show v1.0
+    git push origin v1.0
+
+Branching
+-----------------------------
+    git checkout -b <branchName>
+    git switch -c <branchName>
+    git branch
+    git switch <branchName>
+    git branch -d <branchName>
+    git push origin <branchName>
+    git merge <branchName>
+
+Undoing Changes
+-----------------------------
+Undo staging:
+    git restore --staged <file>
+
+Undo last commit but keep changes staged:
+    git reset --soft HEAD~1
+
+Undo last commit and keep changes unstaged:
+    git reset --mixed HEAD~1
+
+Undo last commit and delete changes:
+    git reset --hard HEAD~1
+
+Reset to a specific commit:
+    git reset --hard <commit-hash>
+
+Revert (safe undo):
+    git revert <commit-hash>
+
+About .git Folder
+-----------------------------
+Important parts:
+
+- .git/objects/ : actual data (commits, files)
+- .git/index : staging area
+- .git/refs/ : branches and tags
+- .git/HEAD : current branch pointer
+
+Untracked Files Behavior
+-----------------------------
+If you remove files from Git using:
+    git rm -r --cached .
+They will appear as untracked unless ignored.
+
+.gitignore
+-----------------------------
+Example entries:
+
+    .idea/
+    .vscode/
+    target/
+    *.class
+    *.log
+    .DS_Store
+
+Apply .gitignore:
+    git rm -r --cached .
+    git add .
+
+Advanced Log View
+-----------------------------
+    git log --oneline --graph --decorate --all
+
+Remove Entire Git Repository
+-----------------------------
+    rm -rf .git
+
+Rename Branch
+-----------------------------
+    git branch -m oldName newName
+
+HEAD Errors
+-----------------------------
+HEAD~1 requires at least two commits.
+
+Stashing
+-----------------------------
+    git stash
+    git stash list
+    git stash apply
+    git stash drop
+
+Clean Untracked Files
+-----------------------------
+    git clean -fd
