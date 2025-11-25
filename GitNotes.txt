@@ -203,8 +203,7 @@ git stash drop
 Clean Untracked Files
 -----------------------------------------
 git clean -fd
-    -> Deletes untracked files and folders from the working directory.
+    -> Deletes untracked files and folders from the working directory
 
+    Login feature
 
-Feature 1 added
-Feature 2 added
