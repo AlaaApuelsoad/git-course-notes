@@ -206,4 +206,5 @@ git clean -fd
     -> Deletes untracked files and folders from the working directory
 
     Login feature
+    logout feature
 
